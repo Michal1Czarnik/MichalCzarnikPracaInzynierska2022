@@ -32,9 +32,9 @@ def ml_prediction():
         temp = tfidf.transform([value.url.data])
         prediction = stacking_model.predict(temp)
         if prediction == 1:
-            return flask.render_template("prediction.html", url = value.url.data, status = "to jest phishing.")
+            return flask.render_template("prediction.html", url = value.url.data, status = "to najprawdopodobniej jest phishing.")
         elif prediction == 0:
-            return flask.render_template("prediction.html", url = value.url.data, status = "to NIE jest phishing.")
+            return flask.render_template("prediction.html", url = value.url.data, status = "to najprawdopodobniej NIE jest phishing.")
     return flask.render_template("index.html", form = value)
 
 if __name__ == '__main__':
